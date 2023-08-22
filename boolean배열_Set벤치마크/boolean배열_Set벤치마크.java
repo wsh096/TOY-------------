@@ -46,8 +46,18 @@ public class boolean배열_Set벤치마크 {
 
         // 실행 로직을 별도의 메서드로 분리
         ActionListener runAction = e -> {
-            long startTime = System.currentTimeMillis();
-            int iterator = Integer.parseInt(userText.getText());
+            try {
+                int iterator = Integer.parseInt(userText.getText());
+                // 양수 확인
+                if (iterator <= 0) {
+                    throw new IllegalArgumentException("양수를 입력해주세요.");
+                }
+        
+                // 최대 실행 시간 제한 (예: 10ms * 횟수 > 24시간)
+                if ((long)10 * iterator > (long)86400000) {
+                    throw new IllegalArgumentException("너무 큰 값입니다. 하루 이상의 시간이 소요될 수 있습니다.");
+                }
+            long startTime = System.currentTimeMillis();    
             long booleanTotal = 0;
             long setTotal = 0;
 
@@ -82,6 +92,11 @@ public class boolean배열_Set벤치마크 {
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+            }
+            } catch (NumberFormatException ex) {
+                resultArea.setText("부적합한 요청입니다. 양수를 입력해주세요.");
+            } catch (IllegalArgumentException ex) {
+                resultArea.setText(ex.getMessage());
             }
         };
 
