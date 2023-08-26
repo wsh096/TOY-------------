@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TOY-Java-BenchMark:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TOY_Java_BenchMark_jar</output-path>
+    <root id="archive" name="TOY-Java-BenchMark.jar">
+      <element id="module-output" name="TOY-Java-BenchMark" />
+    </root>
+  </artifact>
+</component>
