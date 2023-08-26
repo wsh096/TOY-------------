@@ -25,4 +25,4 @@
 
 ![10,000,000개_테스트 이미지](https://github.com/wsh096/TOY-Java-BenchMark/blob/main/boolean%EB%B0%B0%EC%97%B4_Set%EB%B2%A4%EC%B9%98%EB%A7%88%ED%81%AC/image/10%2C000%2C000%EA%B2%B0%EA%B3%BC_txt_image.png)
 
-![10억건_테스트 이미지](https://github.com/wsh096/TOY-Java-BenchMark/blob/main/boolean%EB%B0%B0%EC%97%B4_Set%EB%B2%A4%EC%B9%98%EB%A7%88%ED%81%AC/image/10%2C000%2C000%EA%B2%B0%EA%B3%BC_txt_image.png)
+![10억건_테스트 이미지](https://github.com/wsh096/TOY-Java-BenchMark/blob/main/boolean%EB%B0%B0%EC%97%B4_Set%EB%B2%A4%EC%B9%98%EB%A7%88%ED%81%AC/image/10%EC%96%B5%EA%B1%B4%20%EC%B2%98%EB%A6%AC%20%EC%86%8D%EB%8F%84.png)
