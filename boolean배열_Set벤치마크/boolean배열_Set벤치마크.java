@@ -8,12 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.Callable;
-import java.util.List;
-import java.util.ArrayList;
+
 public class boolean배열_Set벤치마크 {
     // 이전에 저장한 경로를 저장하는 정적 변수
     private static String previousPath = "";
@@ -42,7 +37,7 @@ public class boolean배열_Set벤치마크 {
         panel.add(userText);
 
         JButton runButton = new JButton("실행(Enter)");
-        runButton.setBounds(190, 30, 100, 25);
+        runButton.setBounds(190, 30, 120, 25);
         panel.add(runButton);
 
         JTextArea resultArea = new JTextArea();
@@ -62,58 +57,17 @@ public class boolean배열_Set벤치마크 {
                 if ((long) iterator > (long)86400000) {
                     throw new IllegalArgumentException("너무 큰 값입니다. 하루 이상이 걸리는 경우는 지원하지 않습니다.");
                 }
-            long startTime = System.currentTimeMillis();
-
-            ExecutorService executor = Executors.newFixedThreadPool(4); // 4개의 스레드를 가진 풀 생성
-            List<Future<Long>> booleanFutures = new ArrayList<>();
-            List<Future<Long>> setFutures = new ArrayList<>();
-
-            int chunkSize = 100000; // 분할 크기
-            int chunks = (int) Math.ceil((double) iterator / chunkSize);
-
-                for (int i = 0; i < chunks; i++) {
-                    int start = i * chunkSize;
-                    int end = Math.min(start + chunkSize, iterator);
-
-                    Callable<Long> booleanTask = () -> {
-                        long total = 0;
-                        for (int j = start; j < end; j++) {
-                            total += boolean배열로또();
-                        }
-                        return total;
-                    };
-
-                    Callable<Long> setTask = () -> {
-                        long total = 0;
-                        for (int j = start; j < end; j++) {
-                            total += set활용로또();
-                        }
-                        return total;
-                    };
-
-                    booleanFutures.add(executor.submit(booleanTask));
-                    setFutures.add(executor.submit(setTask));
-                }
-
+            long startTime = System.currentTimeMillis();    
             long booleanTotal = 0;
             long setTotal = 0;
 
-            for (Future<Long> future : booleanFutures) {
-                booleanTotal += future.get();
-            }
-
-            for (Future<Long> future : setFutures) {
-                setTotal += future.get();
-            }
+            StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < iterator; i++) {
                 booleanTotal += boolean배열로또();
                 setTotal += set활용로또();
             }
             long endTime = System.currentTimeMillis();
-            executor.shutdown(); // 스레드 풀 종료
-
-            StringBuilder sb = new StringBuilder();
             String result = sb.append(iterator).append(" 실행 횟수에 대한 결과입니다.\n")
                 .append("boolean배열을 활용한 결과값의 평균은 ").append(booleanTotal).append("ms 입니다.\n")
                 .append("Set을 활용한 결과값의 평균은 ").append(setTotal).append("ms 입니다.\n")
@@ -141,7 +95,7 @@ public class boolean배열_Set벤치마크 {
             }
             } catch (NumberFormatException ex) {
                 resultArea.setText("부적합한 요청입니다. 양수를 입력해주세요.");
-            } catch (Exception ex) {
+            } catch (IllegalArgumentException ex) {
                 resultArea.setText(ex.getMessage());
             }
         };
