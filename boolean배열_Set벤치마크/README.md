@@ -23,3 +23,4 @@
     또한 결과를 놓고 말씀드리면, 100 이하의 적은 경우라면 차이가 미미하지만 
     50000 이상의 수에서는 boolean의 고정형 방식이 동적인 Set보다 압도적으로 빠릅니다.
 
+![10,000,000개_테스트 이미지](https://github.com/wsh096/TOY-Java-BenchMark/blob/main/boolean%EB%B0%B0%EC%97%B4_Set%EB%B2%A4%EC%B9%98%EB%A7%88%ED%81%AC/image/10%2C000%2C000%EA%B2%B0%EA%B3%BC_txt_image.png)
