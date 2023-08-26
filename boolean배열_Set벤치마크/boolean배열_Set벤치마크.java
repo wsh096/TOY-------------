@@ -28,7 +28,7 @@ public class boolean배열_Set벤치마크 {
     private static void placeComponents(JPanel panel) {
         panel.setLayout(null);
 
-        JLabel userLabel = new JLabel("86400000 이상은 지원하지 않습니다.");
+        JLabel userLabel = new JLabel("9,223,372,036,854,775,807 이상은 지원하지 않습니다.");
         userLabel.setBounds(10, 10, 300, 25);
         panel.add(userLabel);
 
@@ -47,14 +47,14 @@ public class boolean배열_Set벤치마크 {
         // 실행 로직을 별도의 메서드로 분리
         ActionListener runAction = e -> {
             try {
-                int iterator = Integer.parseInt(userText.getText());
+                long iterator = Long.parseLong(userText.getText());
                 // 양수 확인
                 if (iterator <= 0) {
                     throw new IllegalArgumentException("양수를 입력해주세요.");
                 }
         
                 // 최대 실행 시간 제한 (예: 10ms * 횟수 > 24시간)
-                if ((long) iterator > (long)86400000) {
+                if (iterator > Long.MAX_VALUE) {
                     throw new IllegalArgumentException("너무 큰 값입니다. 하루 이상이 걸리는 경우는 지원하지 않습니다.");
                 }
             long startTime = System.currentTimeMillis();    
