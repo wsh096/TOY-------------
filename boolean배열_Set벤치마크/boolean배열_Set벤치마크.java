@@ -52,12 +52,8 @@ public class boolean배열_Set벤치마크 {
                 if (iterator <= 0) {
                     throw new IllegalArgumentException("양수를 입력해주세요.");
                 }
-        
-                // 최대 실행 시간 제한 (예: 10ms * 횟수 > 24시간)
-                if (iterator > Long.MAX_VALUE) {
-                    throw new IllegalArgumentException("너무 큰 값입니다. 하루 이상이 걸리는 경우는 지원하지 않습니다.");
-                }
-            long startTime = System.currentTimeMillis();    
+
+            long startTime = System.currentTimeMillis();
             long booleanTotal = 0;
             long setTotal = 0;
 
